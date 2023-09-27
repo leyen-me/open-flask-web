@@ -1,0 +1,208 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none !important;
+	box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+	font-size: 14px;
+	overflow: hidden;
+	position: relative;
+}
+
+a,
+a:focus,
+a:hover {
+	cursor: pointer;
+	color: inherit;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+#nprogress {
+	.bar {
+		background: var(--el-color-primary) !important;
+		z-index: 99999 !important;
+	}
+}
+
+.layout-container {
+	width: 100%;
+	height: 100%;
+	.layout-sidebar {
+		background: var(--theme-menu-bg-color);
+		border-right: var(--theme-border-color-light) 1px solid;
+		height: inherit;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden !important;
+		.el-scrollbar__view {
+			overflow: hidden;
+		}
+		&.aside-expend {
+			width: 230px !important;
+			transition: width 0.3s ease;
+		}
+		&.aside-compress {
+			width: 64px !important;
+			transition: width 0.3s ease;
+		}
+	}
+	.layout-main {
+		padding: 0 !important;
+		overflow: hidden;
+		width: 100%;
+		background-color: var(--theme-main-bg-color);
+		.layout-card {
+			height: calc(100vh - var(--theme-header-height) - var(--el-tabs-header-height) - 30px);
+		}
+	}
+	.layout-scrollbar {
+		padding: 15px;
+	}
+}
+
+/* nprogress的默认样式修改 */
+
+#nprogress .bar {
+	background: var(--el-color-primary);
+}
+
+#nprogress .spinner-icon {
+	border-top-color: var(--el-color-primary);
+	border-left-color: var(--el-color-primary);
+}
+
+/* 增删改查页面的table样式修改 */
+
+.table-crud {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.table-filter {
+	background-color: #ffffff;
+	padding: calc(var(--el-main-padding) / 2);
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	.table-filter-options {
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
+.el-table__cell .cell {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.table-item-options {
+	display: flex;
+	align-items: center;
+}
+
+.table-result {
+	display: flex;
+	flex-direction: column;
+	padding: 12px;
+	flex: 1;
+	background-color: #fff;
+	margin-top: 20px;
+}
+
+.el-table {
+	flex: 1;
+}
+
+.table-options {
+	display: flex;
+	justify-content: flex-end;
+}
+.el-table,
+.table-pagination-block {
+	margin-top: var(--el-main-padding);
+}
+
+.table-pagination-block {
+	display: flex;
+	justify-content: flex-end;
+}
+
+/* 自己的 */
+.w-240 {
+	width: 220px;
+}
+
+.text-oneline {
+	display: inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.office-editor-dialog {
+	.el-dialog__body {
+		padding: 0;
+		height: 100%;
+	}
+
+	.el-dialog__header {
+		padding: 0;
+		padding-bottom: 0;
+		margin-right: 0;
+	}
+}
+
+.el-header {
+	background-color: #fff;
+}
+
+// 优化横向滚动条
+.app-h-scrollbar {
+	overflow-x: auto;
+	overflow-y: hidden;
+	cursor: pointer;
+}
+
+.app-h-scrollbar::-webkit-scrollbar {
+	height: 8px;
+	background-color: #ddd;
+}
+
+.app-h-scrollbar::-webkit-scrollbar-thumb {
+	background-color: #bbb;
+}
+
+.app-v-scrollbar {
+	overflow-x: hidden;
+	overflow-y: auto;
+	cursor: pointer;
+}
+
+.app-v-scrollbar::-webkit-scrollbar {
+	width: 8px;
+	background-color: #ddd;
+	border-radius: 999px;
+}
+
+.app-v-scrollbar::-webkit-scrollbar-thumb {
+	background-color: #bbb;
+	border-radius: 999px;
+}

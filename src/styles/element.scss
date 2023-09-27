@@ -1,0 +1,52 @@
+// cover some element-plus styles
+.el-menu-item.is-active {
+	background-color: var(--el-menu-hover-bg-color);
+}
+.el-menu-item.is-active::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	width: var(--el-border-radius-base);
+	height: 100%;
+	background-color: var(--el-menu-active-color);
+}
+.el-sub-menu .el-menu-item {
+	height: var(--el-menu-item-height);
+	line-height: var(--el-menu-item-height);
+}
+.el-menu-item-group__title {
+	padding: 0;
+}
+.el-menu-item {
+	background-color: var(--el-menu-bg-color);
+}
+.el-menu-item:hover {
+	background-color: var(--el-menu-hover-bg-color);
+	color: var(--el-menu-active-color);
+}
+
+.el-pagination {
+	margin-top: 15px;
+	justify-content: flex-end;
+}
+
+.el-form--inline .el-form-item {
+	margin-right: 16px !important;
+}
+
+.el-drawer .el-drawer__header {
+	display: flex;
+	align-items: center;
+	height: var(--theme-header-height);
+	padding: 0 15px;
+	margin-bottom: 0 !important;
+	font-size: 15px;
+	border-bottom: 1px solid var(--el-border-color);
+	color: var(--el-text-color-primary);
+}
+.el-card.is-always-shadow {
+	box-shadow: none !important;
+}
+.el-button + .el-button {
+	margin-left: var(--el-margin-base);
+}
