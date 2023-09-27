@@ -1,14 +1,8 @@
 # flask-vue-starter
 
-This template should help get you started developing with Vue 3 in Vite.
+for [flask-starter](https://github.com/difffffft/flask-starter).
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+vue3 + vite + pinia + js
 
 ## Project Setup
 
