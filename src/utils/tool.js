@@ -35,27 +35,27 @@ export const getIconList = () => {
 }
 
 // 获取字典Label
-export const getDictLabel = (dictList, dictType, dictValue) => {
-    const type = dictList.find(element => element.dictType === dictType)
+export const getDictLabel = (dict_list, dict_type, dict_value) => {
+    const type = dict_list.find(element => element.dict_type === dict_type)
     if (type) {
-        const val = type.dataList.find((element) => element.dictValue === dictValue + '')
+        const val = type.data_list.find((element) => element.dict_value === dict_value + '')
         if (val) {
-            return val.dictLabel
+            return val.dict_label
         } else {
-            return dictValue
+            return dict_value
         }
     } else {
-        return dictValue
+        return dict_value
     }
 }
 
 // 获取字典Label样式
-export const getDictLabelClass = (dictList, dictType, dictValue) => {
-    const type = dictList.find(element => element.dictType === dictType)
+export const getDictLabelClass = (dict_list, dict_type, dict_value) => {
+    const type = dict_list.find(element => element.dict_type === dict_type)
     if (type) {
-        const val = type.dataList.find((element) => element.dictValue === dictValue + '')
+        const val = type.data_list.find((element) => element.dict_value === dict_value + '')
         if (val) {
-            return val.labelClass
+            return val.label_class
         } else {
             return ''
         }
@@ -65,11 +65,23 @@ export const getDictLabelClass = (dictList, dictType, dictValue) => {
 }
 
 // 获取字典数据列表
-export function getDictDataList(dictList, dictType) {
-    const type = dictList.find((element) => element.dictType === dictType)
+export function getDictDataList(dict_list, dict_type) {
+    const type = dict_list.find((element) => element.dict_type === dict_type)
     if (type) {
-        return type.dataList
+        return type.data_list
     } else {
         return []
     }
+}
+
+
+export const withInstall = (component, alias) => {
+    const comp = component
+    comp.install = (app) => {
+        app.component(comp.name || comp.displayName, component)
+        if (alias) {
+            app.config.globalProperties[alias] = component
+        }
+    }
+    return component
 }

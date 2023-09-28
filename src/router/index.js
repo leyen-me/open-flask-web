@@ -95,6 +95,7 @@ router.beforeEach(async (to, from, next) => {
                     await userStore.getAuthorityListAction()
                     await appStore.getDictListAction()
                 } catch (error) {
+                    console.log(error)
                     // 请求异常，则跳转到登录页
                     userStore.setToken('')
                     next('/login')
@@ -196,7 +197,7 @@ export const generateRoutes = (menuList) => {
                 id: '' + menu.id,
                 url: menu.url,
                 cache: true,
-                newOpen: menu.openStyle === 1,
+                newOpen: menu.open_style === 1,
                 breadcrumb: []
             }
         }
@@ -212,7 +213,7 @@ export const generateRoutes = (menuList) => {
 // 判断是否iframe
 const isIframeUrl = (menu) => {
     // 如果是新页面打开，则不用iframe
-    if (menu.openStyle === 1) {
+    if (menu.open_style === 1) {
         return false
     }
     // 是否外部链接

@@ -17,13 +17,7 @@
 
 <script setup>
 import {RouterView} from 'vue-router'
-import {computed} from 'vue'
-
-import useAppStore from "@/store/modules/appStore";
 import useTabsStore from "@/store/modules/tabStore";
 
-
-const appStore = useAppStore()
 const tabsStore = useTabsStore()
-const theme = computed(() => appStore.theme)
 </script>

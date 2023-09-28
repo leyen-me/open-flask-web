@@ -14,7 +14,7 @@ const useUserStore = defineStore('userStore', {
         // 权限列表
         authorityList: [],
         // 登录token
-        token: ''
+        token: localStorage.getItem("token")
     }),
     actions: {
         setUser(val) {
@@ -22,7 +22,7 @@ const useUserStore = defineStore('userStore', {
         },
         setToken(val) {
             this.token = val
-            // todo：清除本地缓存
+            localStorage.setItem("token", this.token)
         },
         // 账号登录
         async accountLoginAction(loginForm) {

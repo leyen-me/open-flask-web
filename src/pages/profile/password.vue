@@ -8,11 +8,11 @@
       <el-form-item prop="password" label="原密码">
         <el-input v-model="dataForm.password" type="password"></el-input>
       </el-form-item>
-      <el-form-item prop="newPassword" label="新密码">
-        <el-input v-model="dataForm.newPassword" type="password"></el-input>
+      <el-form-item prop="new_password" label="新密码">
+        <el-input v-model="dataForm.new_password" type="password"></el-input>
       </el-form-item>
-      <el-form-item prop="confirmPassword" label="确认密码">
-        <el-input v-model="dataForm.confirmPassword" type="password"></el-input>
+      <el-form-item prop="confirm_password" label="确认密码">
+        <el-input v-model="dataForm.confirm_password" type="password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="handleDataForm">确定</el-button>
@@ -38,14 +38,14 @@ const userStore = useUserStore()
 
 const dataForm = reactive({
   password: '',
-  newPassword: '',
-  confirmPassword: ''
+  new_password: '',
+  confirm_password: ''
 })
 
 const dataRules = ref({
   password: [{required: true, message: '必填项不能为空', trigger: 'blur'}],
-  newPassword: [{required: true, validator: validatePassword, trigger: 'blur'}],
-  confirmPassword: [{required: true, message: '必填项不能为空', trigger: 'blur'}]
+  new_password: [{required: true, validator: validatePassword, trigger: 'blur'}],
+  confirm_password: [{required: true, message: '必填项不能为空', trigger: 'blur'}]
 })
 
 const handleDataForm = () => {
