@@ -1,5 +1,4 @@
 import 'element-plus/dist/index.css'
-// import '@/assets/main.css'
 import '@/styles/index.scss'
 import '@/styles/mobile.scss'
 
