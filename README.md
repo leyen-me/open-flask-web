@@ -1,6 +1,6 @@
 # flask-vue-starter
 
-for [flask-starter](https://github.com/difffffft/flask-starter).
+后端-> [flask-starter](https://github.com/difffffft/flask-starter).
 
 vue3 + vite + pinia + js
 
