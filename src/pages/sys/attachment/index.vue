@@ -63,6 +63,7 @@ import { useAttachmentSubmitApi } from '@/api/sys/attachment'
 const state = reactive({
 	dataListUrl: '/sys/attachment/page',
 	deleteUrl: '/sys/attachment',
+	
 	queryForm: {
 		name: '',
 		platform: ''

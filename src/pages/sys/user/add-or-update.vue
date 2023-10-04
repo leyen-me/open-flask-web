@@ -37,7 +37,7 @@
       </el-form-item>
       <el-form-item prop="postIdList" label="所属岗位">
         <el-select v-model="dataForm.post_id_list" multiple placeholder="所属岗位" style="width: 100%">
-          <el-option v-for="post in postList" :key="post.id" :label="post.postName" :value="post.id"></el-option>
+          <el-option v-for="post in postList" :key="post.id" :label="post.post_name" :value="post.id"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item prop="status" label="状态">
