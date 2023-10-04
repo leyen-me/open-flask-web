@@ -3,7 +3,7 @@ import qs from 'qs'
 import {ElMessage} from 'element-plus'
 import useUserStore from "@/store/modules/userStore";
 
-
+console.log("地址" + import.meta.env.VITE_APP_BASE_API);
 const service = axios.create({
     baseURL: import.meta.env.VITE_APP_BASE_API,
     timeout: 60000,
