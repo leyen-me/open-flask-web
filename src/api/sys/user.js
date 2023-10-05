@@ -13,7 +13,7 @@ export const useUserApi = (id) => {
 }
 
 export const useUserExportApi = () => {
-
+    return service.get('/sys/user/export')
 }
 
 export const useUserSubmitApi = (formData) => {
