@@ -16,7 +16,7 @@
 					<template #reference>
 						<el-input v-model="dataForm.parent_name" :readonly="true" placeholder="上级菜单">
 							<template #suffix>
-								<svg-icon v-if="dataForm.pid !== '0'" icon="icon-close-circle" @click.stop="treeSetDefaultHandle()"></svg-icon>
+								<BaseSvgIcon v-if="dataForm.pid !== '0'" icon="icon-close-circle" @click.stop="treeSetDefaultHandle()"></BaseSvgIcon>
 							</template>
 						</el-input>
 					</template>
@@ -58,7 +58,7 @@
 					<div class="mod__menu-icon-inner">
 						<div class="mod__menu-icon-list">
 							<el-button v-for="(item, index) in iconList" :key="index" :class="{ 'is-active': dataForm.icon === item }" @click="iconHandle(item)">
-								<svg-icon size="45px" :icon="item"></svg-icon>
+								<BaseSvgIcon size="45px" :icon="item"></BaseSvgIcon>
 							</el-button>
 						</div>
 					</div>

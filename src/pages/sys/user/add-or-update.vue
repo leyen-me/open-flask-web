@@ -19,7 +19,7 @@
         />
       </el-form-item>
       <el-form-item prop="gender" label="性别">
-        <fast-radio-group v-model="dataForm.gender" dict-type="user_gender"></fast-radio-group>
+        <BaseRadioGroup v-model="dataForm.gender" dict-type="user_gender"></BaseRadioGroup>
       </el-form-item>
       <el-form-item prop="mobile" label="手机号">
         <el-input v-model="dataForm.mobile" placeholder="手机号"></el-input>
@@ -41,7 +41,7 @@
         </el-select>
       </el-form-item>
       <el-form-item prop="status" label="状态">
-        <fast-radio-group v-model="dataForm.status" dict-type="user_status"></fast-radio-group>
+        <BaseRadioGroup v-model="dataForm.status" dict-type="user_status"></BaseRadioGroup>
       </el-form-item>
     </el-form>
     <template #footer>

@@ -35,7 +35,7 @@
 			<el-row>
 				<el-col :span="12">
 					<el-form-item label="操作类型">
-						<fast-select v-model="dataForm.operate_type" dict-type="log_operate_type" disabled style="width: 100%"></fast-select>
+						<BaseSelect v-model="dataForm.operate_type" dict-type="log_operate_type" disabled style="width: 100%"></BaseSelect>
 					</el-form-item>
 				</el-col>
 				<el-col :span="12">

@@ -30,7 +30,7 @@ const constantRoutes = [
     },
     {
         path: '/404',
-        component: () => import('../pages/404.vue')
+        component: () => import('@/pages/error/404/index.vue')
     }
 ]
 

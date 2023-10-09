@@ -4,9 +4,4 @@
   </el-card>
 </template>
 
-<script>
-export default {
-  name: 'Home'
-}
-</script>
-<script setup></script>
+<script setup name="Home"></script>

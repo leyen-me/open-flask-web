@@ -5,7 +5,7 @@
 				<el-input v-model="dataForm.name" disabled></el-input>
 			</el-form-item>
 			<el-form-item prop="data_scope" label="数据范围">
-				<fast-select v-model="dataForm.data_scope" dict-type="role_data_scope" placeholder="数据范围" style="width: 100%"></fast-select>
+				<BaseSelect v-model="dataForm.data_scope" dict-type="role_data_scope" placeholder="数据范围" style="width: 100%"></BaseSelect>
 			</el-form-item>
 			<el-form-item v-show="dataForm.data_scope == 4" label="数据权限">
 				<el-tree ref="orgListTree" :data="orgList" :props="{ label: 'name', children: 'children' }" node-key="id" accordion show-checkbox> </el-tree>

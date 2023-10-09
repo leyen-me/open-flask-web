@@ -1,4 +1,4 @@
-import constant from '@/utils/constant'
+import {BASE_URL} from "@/constants";
 
 // 把路径转换成驼峰命名
 export const pathToCamel = (path) => {
@@ -12,7 +12,7 @@ export const isExternalLink = (url) => {
 
 // 替换外链参数
 export const replaceLinkParam = (url) => {
-    return url.replace('{{apiUrl}}', constant.apiUrl)
+    return url.replace('{{apiUrl}}', BASE_URL)
 }
 
 // 转换文件大小格式

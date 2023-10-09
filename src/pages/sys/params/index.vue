@@ -8,7 +8,7 @@
 				<el-input v-model="state.queryForm.param_value" placeholder="参数值"></el-input>
 			</el-form-item>
 			<el-form-item>
-				<fast-select v-model="state.queryForm.param_type" dict-type="params_type" placeholder="系统参数" clearable></fast-select>
+				<BaseSelect v-model="state.queryForm.param_type" dict-type="params_type" placeholder="系统参数" clearable></BaseSelect>
 			</el-form-item>
 			<el-form-item>
 				<el-button @click="getDataList()">查询</el-button>
@@ -25,7 +25,7 @@
 			<el-table-column prop="param_name" label="参数名称" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="param_key" label="参数键" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="param_value" label="参数值" show-overflow-tooltip header-align="center" align="center"></el-table-column>
-			<fast-table-column prop="param_type" label="系统参数" dict-type="params_type"></fast-table-column>
+			<BaseTableColumn prop="param_type" label="系统参数" dict-type="params_type"></BaseTableColumn>
 			<el-table-column prop="remark" label="备注" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="create_time" label="创建时间" header-align="center" align="center"></el-table-column>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">

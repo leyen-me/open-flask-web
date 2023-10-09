@@ -9,7 +9,7 @@
 				<el-input v-model="state.queryForm.post_name" placeholder="岗位名称" clearable></el-input>
 			</el-form-item>
 			<el-form-item>
-				<fast-select v-model="state.queryForm.status" dict-type="post_status" clearable placeholder="状态"></fast-select>
+				<BaseSelect v-model="state.queryForm.status" dict-type="post_status" clearable placeholder="状态"></BaseSelect>
 			</el-form-item>
 			<el-form-item>
 				<el-button @click="getDataList()">查询</el-button>
@@ -28,7 +28,7 @@
 			<el-table-column prop="post_code" label="岗位编码" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="post_name" label="岗位名称" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="sort" label="排序" header-align="center" align="center"></el-table-column>
-			<fast-table-column prop="status" label="状态" dict-type="post_status"></fast-table-column>
+			<BaseTableColumn prop="status" label="状态" dict-type="post_status"></BaseTableColumn>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
 				<template #default="scope">
 					<el-button v-auth="'sys:post:update'" type="primary" link @click="addOrUpdateHandle(scope.row.id)">修改</el-button>

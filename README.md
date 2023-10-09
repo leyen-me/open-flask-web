@@ -1,22 +1,22 @@
 # flask-vue-starter
 
-后端-> [flask-starter](https://github.com/difffffft/flask-starter).
+后端地址：[flask-starter](https://github.com/difffffft/flask-starter)
 
-vue3 + vite + pinia + js
+开发工具：[WebStorm](https://www.jetbrains.com/webstorm/)
 
-## Project Setup
+### 依赖安装
 
 ```sh
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+### 开发环境启动
 
 ```sh
 pnpm dev
 ```
 
-### Compile and Minify for Production
+### 生产环境构建
 
 ```sh
 pnpm build

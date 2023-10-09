@@ -8,12 +8,12 @@
 				<el-input v-model="state.queryForm.mobile" placeholder="手机号"></el-input>
 			</el-form-item>
 			<el-form-item>
-				<fast-select v-model="state.queryForm.gender" dict-type="user_gender" clearable placeholder="性别"></fast-select>
+				<BaseSelect v-model="state.queryForm.gender" dict-type="user_gender" clearable placeholder="性别"></BaseSelect>
 			</el-form-item>
 			<el-form-item>
 				<el-button @click="getDataList()">查询</el-button>
 			</el-form-item>
-			<fast-user @select="userHandle"></fast-user>
+			<BaseUser @select="userHandle"></BaseUser>
 			<el-form-item>
 				<el-button type="danger" @click="deleteBatchHandle()">删除</el-button>
 			</el-form-item>
@@ -30,7 +30,7 @@
 			<el-table-column prop="username" label="用户名" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="mobile" label="手机号" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="real_name" label="姓名" header-align="center" align="center"></el-table-column>
-			<fast-table-column prop="gender" label="性别" dict-type="user_gender"></fast-table-column>
+			<BaseTableColumn prop="gender" label="性别" dict-type="user_gender"></BaseTableColumn>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
 				<template #default="scope">
 					<el-button type="primary" link @click="deleteBatchHandle(scope.row.id)">删除</el-button>
@@ -52,9 +52,7 @@
 
 <script setup>
 import useCrud from '@/hooks/useCrud'
-import { reactive, ref } from 'vue'
-
-import FastUser from '@/components/fast-user/src/fast-user.vue'
+import { reactive } from 'vue'
 import { useRoleUserSubmitApi } from '@/api/sys/role'
 import { ElMessage } from 'element-plus/es'
 

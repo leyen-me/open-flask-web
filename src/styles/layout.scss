@@ -33,6 +33,12 @@ li {
 	list-style: none;
 }
 
+@font-face {
+	font-family: 'LeagueGothicItalic';
+	src:url('@/assets/fonts/assets-league-gothic-italic.otf') format('opentype'),
+}
+
+
 #nprogress {
 	.bar {
 		background: var(--el-color-primary) !important;

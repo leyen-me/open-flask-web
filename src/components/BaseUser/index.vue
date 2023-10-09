@@ -1,5 +1,5 @@
 <template>
-  <div class="fast-user">
+  <div class="BaseUser">
     <el-form-item>
       <el-button type="primary" @click="visible = true">新增</el-button>
     </el-form-item>
@@ -12,8 +12,8 @@
           <el-input v-model="state.queryForm.mobile" placeholder="手机号"></el-input>
         </el-form-item>
         <el-form-item>
-          <fast-select v-model="state.queryForm.gender" dict-type="user_gender" clearable
-                       placeholder="性别"></fast-select>
+          <BaseSelect v-model="state.queryForm.gender" dict-type="user_gender" clearable
+                      placeholder="性别"></BaseSelect>
         </el-form-item>
         <el-form-item>
           <el-button @click="getDataList()">查询</el-button>
@@ -25,7 +25,7 @@
         <el-table-column prop="username" label="用户名" header-align="center" align="center"></el-table-column>
         <el-table-column prop="mobile" label="手机号" header-align="center" align="center"></el-table-column>
         <el-table-column prop="real_name" label="姓名" header-align="center" align="center"></el-table-column>
-        <fast-table-column prop="gender" label="性别" dict-type="user_gender"></fast-table-column>
+        <BaseTableColumn prop="gender" label="性别" dict-type="user_gender"></BaseTableColumn>
         <el-table-column prop="create_time" label="创建时间" header-align="center" align="center"
                          width="180"></el-table-column>
       </el-table>
@@ -47,7 +47,7 @@
   </div>
 </template>
 
-<script setup name="FastUser">
+<script setup name="BaseUser">
 import {reactive, ref} from 'vue'
 import useCrud from '@/hooks/useCrud'
 import {ElMessage} from 'element-plus'
@@ -80,7 +80,7 @@ const {getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle
 </script>
 
 <style lang="scss" scoped>
-.fast-user {
+.BaseUser {
   display: inline-block;
 }
 </style>

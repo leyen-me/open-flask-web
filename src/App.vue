@@ -1,5 +1,4 @@
 <script setup>
-import {RouterView} from 'vue-router'
 import {useTitle} from '@vueuse/core'
 
 useTitle(import.meta.env.VITE_APP_BASE_TITLE)

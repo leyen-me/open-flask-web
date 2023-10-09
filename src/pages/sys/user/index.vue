@@ -8,7 +8,7 @@
 				<el-input v-model="state.queryForm.mobile" placeholder="手机号" clearable></el-input>
 			</el-form-item>
 			<el-form-item>
-				<fast-select v-model="state.queryForm.gender" dict-type="user_gender" clearable placeholder="性别"></fast-select>
+				<BaseSelect v-model="state.queryForm.gender" dict-type="user_gender" clearable placeholder="性别"></BaseSelect>
 			</el-form-item>
 			<el-form-item>
 				<el-button @click="getDataList()">查询</el-button>
@@ -21,7 +21,7 @@
 			</el-form-item>
 			<el-form-item v-auth="'sys:user:import'">
 				<el-upload
-					:action="constant.uploadUserExcelUrl"
+					:action="BASE_UPLOAD_USER_EXCEL_URL"
 					:headers="headers"
 					:before-upload="beforeUpload"
 					:on-success="handleSuccess"
@@ -38,10 +38,10 @@
 			<el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
 			<el-table-column prop="username" label="用户名" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="real_name" label="姓名" header-align="center" align="center"></el-table-column>
-			<fast-table-column prop="gender" label="性别" dict-type="user_gender"></fast-table-column>
+			<BaseTableColumn prop="gender" label="性别" dict-type="user_gender"></BaseTableColumn>
 			<el-table-column prop="mobile" label="手机号" header-align="center" align="center"></el-table-column>
 			<el-table-column prop="email" label="邮箱" header-align="center" align="center"></el-table-column>
-			<fast-table-column prop="status" label="状态" dict-type="user_status"></fast-table-column>
+			<BaseTableColumn prop="status" label="状态" dict-type="user_status"></BaseTableColumn>
 			<el-table-column prop="create_time" label="创建时间" header-align="center" align="center" width="180"></el-table-column>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="150">
 				<template #default="scope">
@@ -70,11 +70,10 @@ import useCrud from '@/hooks/useCrud'
 import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'
 
-import constant from '@/utils/constant'
 import { ElMessage } from 'element-plus'
-import FastSelect from '@/components/fast-select/src/fast-select.vue'
 import useUserStore from '@/store/modules/userStore'
 import useDownload from '@/hooks/useDownload'
+import {BASE_UPLOAD_USER_EXCEL_URL} from "@/constants";
 
 const userStore = useUserStore()
 const headers = ref({

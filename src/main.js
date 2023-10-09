@@ -1,38 +1,48 @@
+/* 导入全局样式 */
 import 'element-plus/dist/index.css'
 import '@/styles/index.scss'
 import '@/styles/mobile.scss'
 
 import {createApp} from 'vue'
+import App from '@/App.vue'
 
 import ElementPlus from 'element-plus'
+import ElementPlusIcons from '@/utils/elementPlusIcons'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
 import pinia from "@/store";
 import router from '@/router'
-import App from '@/App.vue'
-import { directive } from '@/utils/directive'
 
 import '@/icons/iconfont/iconfont'
 import '@/icons/iconfont/micon'
 
-import FastTableColumn from '@/components/fast-table-column'
-import FastRadioGroup from '@/components/fast-radio-group'
-import FastSelect from '@/components/fast-select'
-import FastUser from '@/components/fast-user'
-import SvgIcon from '@/components/svg-icon'
-import AppIcon from '@/utils/icons'
+/* 导入全局指令 */
+import drag from "@/directives/drag"
+import auth from "@/directives/auth"
+
+/* 导入全局组件 */
+import BaseRadioGroup from '@/components/BaseRadioGroup/index.vue'
+import BaseSelect from '@/components/BaseSelect/index.vue'
+import BaseTableColumn from '@/components/BaseTableColumn/index.vue'
+import BaseUser from '@/components/BaseUser/index.vue'
+import BaseSvgIcon from '@/components/BaseSvgIcon/index.vue'
+
 
 const app = createApp(App)
 
-directive(app)
-app.use(FastTableColumn)
-app.use(FastRadioGroup)
-app.use(FastSelect)
-app.use(FastUser)
-app.use(SvgIcon)
-app.use(AppIcon)
+/* 全局自定义指令注册，在此处注册的组件WebStorm才能有代码提示和高亮 */
+app.directive('drag', drag)
+app.directive('auth', auth)
+
+/* 全局注册组件，在此处注册的组件WebStorm才能有代码提示和高亮 */
+app.component("BaseRadioGroup", BaseRadioGroup)
+app.component("BaseSelect", BaseSelect)
+app.component("BaseTableColumn", BaseTableColumn)
+app.component("BaseUser", BaseUser)
+app.component("BaseSvgIcon", BaseSvgIcon)
 
 app.use(pinia)
 app.use(router)
 app.use(ElementPlus, {locale: zhCn})
+app.use(ElementPlusIcons)
 app.mount('#app')

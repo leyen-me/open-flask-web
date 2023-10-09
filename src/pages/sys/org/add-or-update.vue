@@ -9,7 +9,7 @@
 					<template #reference>
 						<el-input v-model="dataForm.parent_name" :readonly="true" placeholder="上级机构">
 							<template #suffix>
-								<svg-icon v-if="dataForm.pid !== '0'" icon="icon-close-circle" @click.stop="treeSetDefaultHandle()"></svg-icon>
+								<BaseSvgIcon v-if="dataForm.pid !== '0'" icon="icon-close-circle" @click.stop="treeSetDefaultHandle()"></BaseSvgIcon>
 							</template>
 						</el-input>
 					</template>

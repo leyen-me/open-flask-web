@@ -8,7 +8,7 @@
 				<el-input v-model="state.queryForm.req_uri" placeholder="请求URI"></el-input>
 			</el-form-item>
 			<el-form-item>
-				<fast-select v-model="state.queryForm.status" placeholder="操作状态" dict-type="success_fail" clearable> </fast-select>
+				<BaseSelect v-model="state.queryForm.status" placeholder="操作状态" dict-type="success_fail" clearable> </BaseSelect>
 			</el-form-item>
 			<el-form-item>
 				<el-button @click="getDataList()">查询</el-button>
@@ -19,18 +19,18 @@
 			<el-table-column prop="real_name" label="用户" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="req_uri" label="请求URI" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column prop="req_method" label="请求方法" show-overflow-tooltip header-align="center" align="center"></el-table-column>
-			<fast-table-column
+			<BaseTableColumn
 				prop="operate_type"
 				label="操作类型"
 				show-overflow-tooltip
 				dict-type="log_operate_type"
 				header-align="center"
 				align="center"
-			></fast-table-column>
+			></BaseTableColumn>
 			<el-table-column prop="duration" label="执行时长" show-overflow-tooltip header-align="center" align="center">
 				<template #default="scope"> {{ scope.row.duration }}ms </template>
 			</el-table-column>
-			<fast-table-column prop="status" label="操作状态" show-overflow-tooltip dict-type="success_fail"></fast-table-column>
+			<BaseTableColumn prop="status" label="操作状态" show-overflow-tooltip dict-type="success_fail"></BaseTableColumn>
 			<el-table-column prop="create_time" label="创建时间" show-overflow-tooltip header-align="center" align="center"></el-table-column>
 			<el-table-column label="操作" fixed="right" header-align="center" align="center" width="80">
 				<template #default="scope">

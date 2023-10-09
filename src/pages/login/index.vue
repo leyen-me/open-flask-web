@@ -61,7 +61,7 @@
           <el-form-item label="验证码" prop="captcha">
             <template #label="data">
               <div class="login-form-label">
-                <svg-icon icon="icon-security-fill" style="font-size: 16px; color: #727d8b"></svg-icon>
+                <BaseSvgIcon icon="icon-security-fill" style="font-size: 16px; color: #727d8b"></BaseSvgIcon>
                 <span>{{ data.label }}</span>
               </div>
             </template>
@@ -104,7 +104,7 @@
           <el-form-item label="验证码" prop="code">
             <template #label="data">
               <div class="login-form-label">
-                <svg-icon icon="icon-security-fill" style="font-size: 16px; color: #727d8b"></svg-icon>
+                <BaseSvgIcon icon="icon-security-fill" style="font-size: 16px; color: #727d8b"></BaseSvgIcon>
                 <span>{{ data.label }}</span>
               </div>
             </template>

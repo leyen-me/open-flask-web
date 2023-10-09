@@ -2,7 +2,7 @@
   <template v-if="menu.children.length > 0">
     <el-sub-menu :key="menu.path" :index="menu.path">
       <template #title>
-        <svg-icon class="menu-icon" :icon="menu.meta.icon"></svg-icon>
+        <BaseSvgIcon class="menu-icon" :icon="menu.meta.icon"></BaseSvgIcon>
         <span class="menu-title">{{ menu.meta.title }}</span>
       </template>
       <menu-item v-for="sub in menu.children" :key="sub.path" :menu="sub"></menu-item>
@@ -10,7 +10,7 @@
   </template>
   <template v-else>
     <el-menu-item :key="menu.path" :index="menu.path" @click="onClick(menu)">
-      <svg-icon class="menu-icon" :icon="menu.meta.icon"></svg-icon>
+      <BaseSvgIcon class="menu-icon" :icon="menu.meta.icon"></BaseSvgIcon>
       <template #title>
         <span class="menu-title">{{ menu.meta.title }}</span>
       </template>

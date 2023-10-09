@@ -1,3 +1,12 @@
+/* 请求基本地址 */
+export const BASE_URL = import.meta.env.VITE_APP_BASE_API
+
+/* 上传文件地址 */
+export const BASE_UPLOAD_URL = BASE_URL + '/sys/file/upload'
+
+/* 导入用户地址 */
+export const BASE_UPLOAD_USER_EXCEL_URL = BASE_URL + '/sys/user/import'
+
 // logo的英文名称
 export const LOGO_ENGLISH_NAME = 'DIFFFFFFT'
 
@@ -12,8 +21,8 @@ export const LOCAL_LOGIN_PASSWORD = 'login_p'
 
 // 登录模式
 export const LOGIN_MODEL = {
-	ACCOUNT: '账号登录',
-	MOBILE: '短信登录'
+    ACCOUNT: '账号登录',
+    MOBILE: '短信登录'
 }
 
 // 请求成功的CODE
