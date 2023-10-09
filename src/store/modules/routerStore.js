@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import {useMenuNavApi} from '@/api/sys/menu'
-import {generateRoutes, constantMenu} from '@/router'
+import {generateRoutes} from "@/permission";
+import constantMenu from "@/router/modules/constantMenu";
 
 const useRouterStore = defineStore('routerStore', {
     state: () => ({
@@ -8,7 +9,7 @@ const useRouterStore = defineStore('routerStore', {
         routes: []
     }),
     actions: {
-        async getMenuRoutes() {
+        async getMenuRouteTree() {
             const {data} = await useMenuNavApi()
             const routes = generateRoutes(data)
             this.menuRoutes.push(...routes)

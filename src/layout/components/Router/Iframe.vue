@@ -1,7 +1,5 @@
 <template>
-  <el-card v-loading="loading">
     <iframe :src="url" class="iframe" @load="load"></iframe>
-  </el-card>
 </template>
 
 <script setup>
@@ -43,8 +41,9 @@ const load = () => {
 
 <style lang="scss" scoped>
 .iframe {
-  min-height: calc(100vh - 70px - var(--theme-header-height));
   width: 100%;
+  height: 100%;
+  border-radius: var(--el-card-border-radius);
   border: 0;
 }
 </style>

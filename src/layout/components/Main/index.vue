@@ -7,7 +7,6 @@
             <keep-alive :include="[...tabsStore.cachedViews]">
               <component :is="Component" :key="route.name"/>
             </keep-alive>
-            <!--<component :is="Component" :key="route.name"/>-->
           </router-view>
         </div>
       </el-scrollbar>

@@ -16,7 +16,7 @@ service.interceptors.request.use(
             config.headers.Authorization = userStore.token
         }
         config.headers['Accept-Language'] = 'zh-CN'
-        // 追加时间戳，防止GET请求缓存
+        /* 追加时间戳，防止GET请求缓存 */
         if (config.method.toUpperCase() === 'GET') {
             config.params = {...config.params, t: new Date().getTime()}
         }
@@ -29,7 +29,6 @@ service.interceptors.request.use(
         return Promise.reject(error)
     }
 )
-
 
 service.interceptors.response.use(
     response => {

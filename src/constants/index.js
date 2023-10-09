@@ -30,3 +30,6 @@ export const RESPONSE_SUCCESS_CODE = 0
 
 // 是否开启短信登录，开启则可以访问，未开启则不显示
 export const SMS_LOGIN_STATE = true
+
+/* 路由白名单，用户不需要登录也可以访问 */
+export const ROUTE_WHITE_LIST = ['/login']
