@@ -32,10 +32,10 @@ const useDownload = ({url, data = {}, method = 'POST', loading = true}) => {
         }
         try {
             let response = null
-            if (method == 'POST' || method == 'post') {
+            if (method === 'POST' || method === 'post') {
                 response = await service.post(url, data)
             }
-            if (method == 'GET' || method == 'get') {
+            if (method === 'GET' || method === 'get') {
                 response = await service.get(url)
             }
             const blob = new Blob([response.data])

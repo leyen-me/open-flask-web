@@ -9,7 +9,7 @@ export const useRefresh = () => {
     const onRefresh = () => {
         tabsStore.delCachedView(route).then(() => {
             nextTick(() => {
-                router.replace({path: '/redirect' + route.path}).catch(err => {
+                router.replace({path: '/redirect' + route.path, query: {...route.query}}).catch(err => {
                     console.warn(err)
                 })
             })
