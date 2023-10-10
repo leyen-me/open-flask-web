@@ -1,16 +1,16 @@
 import {BASE_URL} from "@/constants";
 
-// 把路径转换成驼峰命名
+/* 把路径转换成驼峰命名 */
 export const pathToCamel = (path) => {
     return path.replace(/\/(\w)/g, (all, letter) => letter.toUpperCase())
 }
 
-// 是否外链
+/* 是否外链 */
 export const isExternalLink = (url) => {
     return /^(https?:|\/\/|http?:|\/\/|^{{\s?apiUrl\s?}})/.test(url)
 }
 
-// 替换外链参数
+/* 替换外链参数 */
 export const replaceLinkParam = (url) => {
     return url.replace('{{apiUrl}}', BASE_URL)
 }

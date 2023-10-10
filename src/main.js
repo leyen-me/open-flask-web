@@ -26,6 +26,7 @@ import BaseSelect from '@/components/BaseSelect/index.vue'
 import BaseTableColumn from '@/components/BaseTableColumn/index.vue'
 import BaseUser from '@/components/BaseUser/index.vue'
 import BaseSvgIcon from '@/components/BaseSvgIcon/index.vue'
+import BaseSideNavLogo from '@/components/BaseSideNavLogo/index.vue'
 
 /* 权限模块，动态路由 */
 import '@/permission';
@@ -42,6 +43,7 @@ app.component("BaseSelect", BaseSelect)
 app.component("BaseTableColumn", BaseTableColumn)
 app.component("BaseUser", BaseUser)
 app.component("BaseSvgIcon", BaseSvgIcon)
+app.component("BaseSideNavLogo", BaseSideNavLogo)
 
 app.use(pinia)
 app.use(router)

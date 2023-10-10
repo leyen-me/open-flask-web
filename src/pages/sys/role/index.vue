@@ -57,7 +57,7 @@
 	</el-card>
 </template>
 
-<script setup name="SysRoleIndex">
+<script setup name="SysRole">
 import useCrud from '@/hooks/useCrud'
 import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'

@@ -55,7 +55,7 @@
 	</el-card>
 </template>
 
-<script setup>
+<script setup name="SysMenu">
 import useCrud from '@/hooks/useCrud'
 import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'

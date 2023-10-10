@@ -51,7 +51,7 @@
 	</el-card>
 </template>
 
-<script setup name="SysParamsIndex">
+<script setup name="SysParams">
 import useCrud from '@/hooks/useCrud'
 import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'

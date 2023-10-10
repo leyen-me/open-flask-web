@@ -71,7 +71,7 @@
 	</el-card>
 </template>
 
-<script setup name="SysDictType">
+<script setup name="SysDict">
 import useCrud from '@/hooks/useCrud'
 import { reactive, ref } from 'vue'
 import AddOrUpdate from './type-add-or-update.vue'

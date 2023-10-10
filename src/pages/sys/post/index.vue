@@ -54,7 +54,7 @@
 	</el-card>
 </template>
 
-<script setup name="SysPostIndex">
+<script setup name="SysPost">
 import useCrud from '@/hooks/useCrud'
 import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'

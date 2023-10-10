@@ -56,7 +56,7 @@
   </el-card>
 </template>
 
-<script setup name="SysAttachmentIndex">
+<script setup name="SysAttachment">
 import {ElMessage} from 'element-plus'
 import {reactive, ref} from 'vue'
 
