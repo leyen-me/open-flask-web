@@ -60,7 +60,7 @@ import { reactive, ref } from 'vue'
 import OperateDetail from './operate_detail.vue'
 
 const state = reactive({
-	dataListUrl: '/sys/log/operate/page',
+	baseUrl: '/sys/log/operate',
 	queryForm: {
 		real_name: '',
 		module: '',

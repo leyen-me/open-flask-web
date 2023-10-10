@@ -81,8 +81,7 @@ const headers = ref({
 })
 
 const state = reactive({
-	dataListUrl: '/sys/user/page',
-	deleteUrl: '/sys/user',
+	baseUrl: '/sys/user',
 	queryForm: {
 		username: '',
 		mobile: '',

@@ -62,8 +62,7 @@ const props = defineProps({
 })
 
 const state = reactive({
-	dataListUrl: '/sys/dict/data/page',
-	deleteUrl: '/sys/dict/data',
+  baseUrl: '/sys/dict/data',
 	queryForm: {
 		dict_type_id: props.dictTypeId
 	}

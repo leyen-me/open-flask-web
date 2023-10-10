@@ -62,8 +62,7 @@ import AddOrUpdate from './add-or-update.vue'
 import { ElTable } from 'element-plus'
 
 const state = reactive({
-	dataListUrl: '/sys/menu/list',
-	deleteUrl: '/sys/menu',
+	baseUrl: '/sys/menu',
 	isPage: false
 })
 

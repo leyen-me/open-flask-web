@@ -46,7 +46,7 @@ import { reactive } from 'vue'
 import { useLogLoginExportApi } from '@/api/sys/log'
 
 const state = reactive({
-	dataListUrl: '/sys/log/login/page',
+	baseUrl: '/sys/log/login',
 	queryForm: {
 		username: '',
 		address: '',

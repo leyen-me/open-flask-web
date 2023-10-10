@@ -26,8 +26,7 @@ import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'
 
 const state = reactive({
-	dataListUrl: '/sys/org/list',
-	deleteUrl: '/sys/org',
+	baseUrl: '/sys/org',
 	isPage: false
 })
 

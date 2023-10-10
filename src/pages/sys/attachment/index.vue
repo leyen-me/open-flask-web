@@ -25,8 +25,11 @@
       <el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
       <el-table-column prop="name" label="附件名称" show-overflow-tooltip header-align="center"
                        align="center"></el-table-column>
-      <el-table-column prop="url" label="附件地址" show-overflow-tooltip header-align="center"
-                       align="center"></el-table-column>
+      <el-table-column label="附件地址" show-overflow-tooltip header-align="center" align="center">
+        <template #default="scope">
+          {{ BASE_URL + scope.row.url }}
+        </template>
+      </el-table-column>
       <el-table-column prop="size" label="附件大小" header-align="center" align="center">
         <template #default="scope">
           {{ convertSizeFormat(scope.row.size) }}
@@ -64,12 +67,10 @@ import useCrud from '@/hooks/useCrud'
 import useUserStore from "@/store/modules/userStore";
 import {convertSizeFormat} from '@/utils/tool'
 import {useAttachmentSubmitApi} from '@/api/sys/attachment'
-import {BASE_UPLOAD_URL} from "@/constants";
+import {BASE_UPLOAD_URL, BASE_URL} from "@/constants";
 
 const state = reactive({
-  dataListUrl: '/sys/attachment/page',
-  deleteUrl: '/sys/attachment',
-
+  baseUrl: '/sys/attachment',
   queryForm: {
     name: '',
     platform: ''

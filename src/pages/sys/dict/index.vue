@@ -79,8 +79,7 @@ import DataSql from './data-sql.vue'
 import DictData from './data.vue'
 
 const state = reactive({
-	dataListUrl: '/sys/dict/type/page',
-	deleteUrl: '/sys/dict/type',
+  baseUrl: '/sys/dict/type',
 	queryForm: {
 		dict_name: '',
 		dict_type: ''

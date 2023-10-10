@@ -64,7 +64,7 @@ const props = defineProps({
 })
 
 const state = reactive({
-	dataListUrl: '/sys/role/user/page',
+  baseUrl: '/sys/role/user',
 	deleteUrl: '/sys/role/user/' + props.roleId,
 	queryForm: {
 		role_id: props.roleId,

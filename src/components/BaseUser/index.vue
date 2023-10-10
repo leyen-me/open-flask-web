@@ -53,7 +53,7 @@ import useCrud from '@/hooks/useCrud'
 import {ElMessage} from 'element-plus'
 
 const state = reactive({
-  dataListUrl: '/sys/user/page',
+  baseUrl: '/sys/user',
   queryForm: {
     username: '',
     mobile: '',

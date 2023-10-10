@@ -57,8 +57,7 @@ import { reactive, ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'
  
 const state = reactive({
-	dataListUrl: '/sys/params/page',
-	deleteUrl: '/sys/params',
+	baseUrl: '/sys/params',
 	queryForm: {
 		param_type: '',
 		param_key: '',

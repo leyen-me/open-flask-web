@@ -65,8 +65,7 @@ import DataScope from './data-scope.vue'
 import User from './user.vue'
 
 const state = reactive({
-	dataListUrl: '/sys/role/page',
-	deleteUrl: '/sys/role',
+	baseUrl: '/sys/role',
 	queryForm: {
 		name: ''
 	}
