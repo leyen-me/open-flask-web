@@ -157,7 +157,6 @@ const treeCurrentChange = (data) => {
 	dataForm.value.pid = data.id
 	dataForm.value.parent_name = data.name
 	menuListPopover.value.hide()
-	console.log("变化了",dataForm.value);
 }
 
 // 图标点击事件

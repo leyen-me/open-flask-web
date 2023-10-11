@@ -48,11 +48,12 @@
 </template>
 
 <script setup name="BaseUser">
-import {reactive, ref} from 'vue'
+import {ref} from 'vue'
 import useCrud from '@/hooks/useCrud'
 import {ElMessage} from 'element-plus'
 
-const state = reactive({
+
+const {state, getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle} = useCrud({
   baseUrl: '/sys/user',
   queryForm: {
     username: '',
@@ -65,7 +66,7 @@ const visible = ref(false)
 
 const emit = defineEmits(['select'])
 const submitHandle = () => {
-  const dataList = state.dataListSelections ? state.dataListSelections : []
+  const dataList = state.value.dataListSelections ? state.value.dataListSelections : []
   if (dataList.length === 0) {
     ElMessage.warning('请选择用户记录')
     return
@@ -75,8 +76,6 @@ const submitHandle = () => {
 
   emit('select', dataList)
 }
-
-const {getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle} = useCrud(state)
 </script>
 
 <style lang="scss" scoped>

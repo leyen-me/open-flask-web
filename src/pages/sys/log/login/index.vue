@@ -42,22 +42,20 @@
 
 <script setup name="SysLogLogin">
 import useCrud from '@/hooks/useCrud'
-import { reactive } from 'vue'
 import { useLogLoginExportApi } from '@/api/sys/log'
 
-const state = reactive({
-	baseUrl: '/sys/log/login',
-	queryForm: {
-		username: '',
-		address: '',
-		status: ''
-	}
+
+
+const { state, getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle } = useCrud({
+  baseUrl: '/sys/log/login',
+  queryForm: {
+    username: '',
+    address: '',
+    status: ''
+  }
 })
 
 const downloadExcel = () => {
 	useLogLoginExportApi()
-	return
 }
-
-const { getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle } = useCrud(state)
 </script>

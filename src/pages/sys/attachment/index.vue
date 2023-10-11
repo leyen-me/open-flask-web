@@ -69,7 +69,16 @@ import {convertSizeFormat} from '@/utils/tool'
 import {useAttachmentSubmitApi} from '@/api/sys/attachment'
 import {BASE_UPLOAD_URL, BASE_URL} from "@/constants";
 
-const state = reactive({
+
+const {
+  state,
+  getDataList,
+  selectionChangeHandle,
+  sizeChangeHandle,
+  currentChangeHandle,
+  deleteBatchHandle,
+  downloadHandle
+} = useCrud({
   baseUrl: '/sys/attachment',
   queryForm: {
     name: '',
@@ -94,9 +103,7 @@ const handleSuccess = (res, file) => {
     ElMessage.error('上传失败：' + res.msg)
     return false
   }
-
   Object.assign(dataForm, res.data)
-
   useAttachmentSubmitApi(dataForm).then(() => {
     ElMessage.success({
       message: '上传成功',
@@ -115,13 +122,4 @@ const beforeUpload = file => {
   }
   return true
 }
-
-const {
-  getDataList,
-  selectionChangeHandle,
-  sizeChangeHandle,
-  currentChangeHandle,
-  deleteBatchHandle,
-  downloadHandle
-} = useCrud(state)
 </script>

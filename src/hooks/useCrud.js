@@ -1,94 +1,92 @@
-import service from '@/utils/request'
-import {onMounted} from 'vue'
-import {ElMessage, ElMessageBox} from 'element-plus'
+import {onMounted, ref} from 'vue'
 import axios from 'axios'
+import {ElMessage, ElMessageBox} from 'element-plus'
+
+import service from '@/utils/request'
 
 const useCrud = (options) => {
 
-    /* 默认配置 */
-    const defaultOptions = {
-        // 基础Url，根据该UrL自动推导增删改查方法
-        baseUrl: '',
-        deleteUrl: '',
-        createdIsNeed: true,
-        isPage: true,
-        primaryKey: 'id',
-        queryForm: {},
-        dataList: [],
-        order: '',
-        asc: false,
-        page: 1,
-        limit: 10,
-        total: 0,
-        pageSizes: [1, 10, 20, 50, 100, 200],
-        dataListLoading: false,
-        dataListSelections: [],
-    }
-
     /* 覆盖默认配置的方法 */
-    const mergeDefaultOptions = (options, props) => {
-        for (const key in options) {
-            if (!Object.getOwnPropertyDescriptor(props, key)) {
-                props[key] = options[key]
+    const mergeDefaultOptions = () => {
+        for (const key in state.value) {
+            if (Object.getOwnPropertyDescriptor(options, key)) {
+                state.value[key] = options[key]
             }
         }
-        return props
     }
 
-    // 覆盖默认配置
-    const state = mergeDefaultOptions(defaultOptions, options)
+    /* 默认配置 */
+    const state = ref({
+            // 基础Url，根据该UrL自动推导增删改查方法
+            baseUrl: '',
+            deleteUrl: '',
+            createdIsNeed: true,
+            isPage: true,
+            primaryKey: 'id',
+            queryForm: {},
+            dataList: [],
+            order: '',
+            asc: false,
+            page: 1,
+            limit: 10,
+            total: 0,
+            pageSizes: [1, 10, 20, 50, 100, 200],
+            dataListLoading: false,
+            dataListSelections: [],
+        }
+    )
+
+    mergeDefaultOptions()
 
     onMounted(() => {
-        if (state.createdIsNeed) {
+        if (state.value.createdIsNeed) {
             query()
         }
     })
 
-    const query = (finishFunc) => {
-        if (!state.baseUrl) {
+    const query = () => {
+        if (!state.value.baseUrl) {
             return
         }
-        state.dataListLoading = true
+        state.value.dataListLoading = true
         service
-            .get(state.isPage ? state.baseUrl + '/page' : state.baseUrl + '/list', {
+            .get(state.value.isPage ? state.value.baseUrl + '/page' : state.value.baseUrl + '/list', {
                 params: {
-                    order: state.order,
-                    asc: state.asc,
-                    page: state.isPage ? state.page : null,
-                    limit: state.isPage ? state.limit : null,
-                    ...state.queryForm
+                    order: state.value.order,
+                    asc: state.value.asc,
+                    page: state.value.isPage ? state.value.page : null,
+                    limit: state.value.isPage ? state.value.limit : null,
+                    ...state.value.queryForm
                 }
             })
             .then((res) => {
-                state.dataList = state.isPage ? res.data.list : res.data
-                state.total = state.isPage ? res.data.total : 0
+                state.value.dataList = state.value.isPage ? res.data.list : res.data
+                state.value.total = state.value.isPage ? res.data.total : 0
             })
             .finally(() => {
-                state.dataListLoading = false
-                if (finishFunc) finishFunc()
+                state.value.dataListLoading = false
             })
     }
 
-    const getDataList = (finishFunc) => {
-        state.page = 1
-        query(finishFunc)
+    const getDataList = () => {
+        state.value.page = 1
+        query()
     }
 
     const sizeChangeHandle = (val) => {
-        state.page = 1
-        state.limit = val
+        state.value.page = 1
+        state.value.limit = val
         query()
     }
 
     const currentChangeHandle = (val) => {
-        state.page = val
+        state.value.page = val
         query()
     }
 
     // 多选
     const selectionChangeHandle = (selections) => {
-        state.dataListSelections = selections.map((item) => state.primaryKey && item[state.primaryKey])
-        console.log(selections)
+        state.value.dataListSelections = selections.map((item) => state.value.primaryKey && item[state.value.primaryKey])
     }
 
     // 排序
@@ -96,10 +94,10 @@ const useCrud = (options) => {
         const {prop, order} = data
 
         if (prop && order) {
-            state.order = prop
-            state.asc = order === 'ascending'
+            state.value.order = prop
+            state.value.asc = order === 'ascending'
         } else {
-            state.order = ''
+            state.value.order = ''
         }
 
         query()
@@ -112,7 +110,7 @@ const useCrud = (options) => {
             type: 'warning'
         })
             .then(() => {
-                service.delete(state.deleteUrl ? state.deleteUrl : state.baseUrl + '/' + key).then(() => {
+                service.delete(state.value.deleteUrl ? state.value.deleteUrl : state.value.baseUrl + '/' + key).then(() => {
                     ElMessage.success('删除成功')
                     query()
                 })
@@ -126,7 +124,7 @@ const useCrud = (options) => {
         if (key) {
             data = [key]
         } else {
-            data = state.dataListSelections ? state.dataListSelections : []
+            data = state.value.dataListSelections ? state.value.dataListSelections : []
             if (data.length === 0) {
                 ElMessage.warning('请选择删除记录')
                 return
@@ -139,7 +137,7 @@ const useCrud = (options) => {
             type: 'warning'
         })
             .then(() => {
-                service.delete(state.deleteUrl ? state.deleteUrl : state.baseUrl, {data}).then(() => {
+                service.delete(state.value.deleteUrl ? state.value.deleteUrl : state.value.baseUrl, {data}).then(() => {
                     ElMessage.success('删除成功')
                     query()
                 })
@@ -182,6 +180,7 @@ const useCrud = (options) => {
     }
 
     return {
+        state,
         getDataList,
         sizeChangeHandle,
         currentChangeHandle,

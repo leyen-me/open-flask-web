@@ -56,23 +56,23 @@
 
 <script setup name="SysLogOperate">
 import useCrud from '@/hooks/useCrud'
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import OperateDetail from './operate_detail.vue'
 
-const state = reactive({
-	baseUrl: '/sys/log/operate',
-	queryForm: {
-		real_name: '',
-		module: '',
-		req_uri: '',
-		status: ''
-	}
+
+
+const { state, getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle } = useCrud({
+  baseUrl: '/sys/log/operate',
+  queryForm: {
+    real_name: '',
+    module: '',
+    req_uri: '',
+    status: ''
+  }
 })
 
 const detailRef = ref()
 const detailHandle = (row) => {
 	detailRef.value.init(row)
 }
-
-const { getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle } = useCrud(state)
 </script>

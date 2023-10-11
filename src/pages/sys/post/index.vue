@@ -56,22 +56,22 @@
 
 <script setup name="SysPost">
 import useCrud from '@/hooks/useCrud'
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import AddOrUpdate from './add-or-update.vue'
 
-const state = reactive({
-	baseUrl: '/sys/post',
-	queryForm: {
-		post_code: '',
-		post_name: '',
-		status: ''
-	}
+
+const { state, getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle, deleteBatchHandle } = useCrud({
+  baseUrl: '/sys/post',
+  queryForm: {
+    post_code: '',
+    post_name: '',
+    status: ''
+  }
 })
+
 
 const addOrUpdateRef = ref()
 const addOrUpdateHandle = (id) => {
 	addOrUpdateRef.value.init(id)
 }
-
-const { getDataList, selectionChangeHandle, sizeChangeHandle, currentChangeHandle, deleteBatchHandle } = useCrud(state)
 </script>
