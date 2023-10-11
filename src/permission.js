@@ -8,7 +8,7 @@ import router from "@/router";
 import {ROUTE_WHITE_LIST} from "@/constants";
 import asyncRoutes from "@/router/modules/asyncRoutes";
 import errorRoute from "@/router/modules/errorRoute";
-import constantRoutes from "@/router/modules/constantRoutes";
+import constantRoutes from "@/constants/modules/constantRoutes";
 import {isExternalLink, pathToCamel} from '@/utils/tool'
 
 /* 进度条不显示右上角的圆圈 */
@@ -65,9 +65,6 @@ export const generateRoutes = (menuList) => {
             if (isIframeUrl(menu)) {
                 component = () => import('@/layout/components/Router/Iframe.vue')
                 path = '/iframe/' + menu.id
-            } else if (menu.url.indexOf('online/form/') !== -1) {
-                // component = () => import('@/pages/online/form/index.vue')
-                path = '/' + menu.url
             } else {
                 component = getDynamicComponent(menu.url)
                 path = '/' + menu.url
@@ -130,9 +127,6 @@ router.beforeEach(async (to, from, next) => {
                 const menuRouteList = getKeepAliveRoutes(menuRouteTree, [])
                 asyncRoutes.children.push(...menuRouteList)
                 router.addRoute(asyncRoutes)
-
-                /* 错误路由 */
-                router.addRoute(errorRoute)
 
                 /* 保存路由数据 */
                 routerStore.setRoutes(constantRoutes.concat(asyncRoutes))

@@ -132,7 +132,6 @@ const addTab = () => {
 
   tabsStore.addView(route)
   tabsStore.addCachedView(route)
-  console.log(tabsStore.cachedViews)
 
   activeTabName.value = route.path
 

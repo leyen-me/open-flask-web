@@ -15,7 +15,7 @@ const useAppStore = defineStore('appStore', {
         },
         async getDictListAction() {
             const {data} = await useDictTypeAllApi()
-            this.dictList = data || []
+            this.dictList = this.dictList.concat(data || [])
         }
     }
 })

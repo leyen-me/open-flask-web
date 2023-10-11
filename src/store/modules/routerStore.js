@@ -1,7 +1,7 @@
 import {defineStore} from 'pinia'
 import {useMenuNavApi} from '@/api/sys/menu'
 import {generateRoutes} from "@/permission";
-import constantMenu from "@/router/modules/constantMenu";
+import constantMenu from "@/constants/modules/constantMenu";
 
 const useRouterStore = defineStore('routerStore', {
     state: () => ({

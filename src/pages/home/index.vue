@@ -4,4 +4,5 @@
   </el-card>
 </template>
 
-<script setup name="Home"></script>
+<script setup name="Home">
+</script>
