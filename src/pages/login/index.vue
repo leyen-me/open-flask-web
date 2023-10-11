@@ -58,7 +58,7 @@
                 clearable
             />
           </el-form-item>
-          <el-form-item label="验证码" prop="captcha">
+          <el-form-item label="验证码" prop="captcha" v-if="isCaptchaEnabled">
             <template #label="data">
               <div class="login-form-label">
                 <BaseSvgIcon icon="icon-security-fill" style="font-size: 16px; color: #727d8b"></BaseSvgIcon>
@@ -138,7 +138,7 @@ import {ref, reactive, computed} from 'vue'
 import {ElMessage} from 'element-plus'
 import {useRouter} from 'vue-router'
 import {LOGIN_MODEL, LOCAL_LOGIN_PASSWORD, LOCAL_LOGIN_USERNAME, SMS_LOGIN_STATE, LOGO_ENGLISH_NAME} from '@/constants'
-import {useCaptchaApi, useSendCodeApi} from '@/api/auth'
+import {useCaptchaApi, useCaptchaEnabledApi, useSendCodeApi} from '@/api/auth'
 import {validateMobile} from '@/utils/validate'
 import useUserStore from "@/store/modules/userStore";
 
@@ -228,13 +228,23 @@ const accountLoginFormRules = reactive({
   captcha: [{required: true, message: '验证码必填', trigger: 'blur'}]
 })
 // 验证码逻辑
+const isCaptchaEnabled = ref(false)
 const captchaBase64 = ref('')
-const handleCaptchaClick = async () => {
-  const {data} = await useCaptchaApi()
-  accountLoginForm.key = data.key
-  captchaBase64.value = data.image
+
+const onCaptchaEnabled = async () => {
+  const {data} = await useCaptchaEnabledApi()
+  isCaptchaEnabled.value = data
+  await handleCaptchaClick()
 }
-handleCaptchaClick()
+const handleCaptchaClick = async () => {
+  if (isCaptchaEnabled.value) {
+    const {data} = await useCaptchaApi()
+    accountLoginForm.key = data.key
+    captchaBase64.value = data.image
+  }
+}
+onCaptchaEnabled()
+
 const handleSave = () => {
   localStorage.setItem(LOCAL_LOGIN_USERNAME, accountLoginForm.username)
   localStorage.setItem(LOCAL_LOGIN_PASSWORD, accountLoginForm.password)
