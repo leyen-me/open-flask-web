@@ -7,7 +7,6 @@ import useUserStore from "@/store/modules/userStore";
 import router from "@/router";
 import {ROUTE_WHITE_LIST} from "@/constants";
 import asyncRoutes from "@/router/modules/asyncRoutes";
-import errorRoute from "@/router/modules/errorRoute";
 import constantRoutes from "@/constants/modules/constantRoutes";
 import {isExternalLink, pathToCamel} from '@/utils/tool'
 
