@@ -20,6 +20,7 @@
         </div>
         <el-form
             ref="accountLoginFormRef"
+            @keyup.enter="handleLoginClick"
             v-show="currLoginModel === LOGIN_MODEL.ACCOUNT"
             :model="accountLoginForm"
             :rules="accountLoginFormRules"
@@ -74,7 +75,6 @@
                   type="captcha"
                   autocomplete="off"
                   clearable
-                  @keyup.enter="handleLoginClick"
               />
               <img :src="captchaBase64" alt="验证码" @click="handleCaptchaClick"/>
             </div>
@@ -88,6 +88,7 @@
             label-width="120px"
             label-position="top"
             class="login-form"
+            @keyup.enter="handleLoginClick"
         >
           <el-form-item label="手机号" prop="mobile">
             <template #label="data">
@@ -117,7 +118,6 @@
                   type="captcha"
                   autocomplete="off"
                   clearable
-                  @keyup.enter="handleLoginClick"
               />
               <el-button v-if="!sms.disabled" type="primary" size="large" @click="handleSendCodeClick">发送验证码
               </el-button>
@@ -307,15 +307,18 @@ const handleSwitchLoginModelClick = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d8dee7;
+  //background-color: #d8dee7;
   --el-border-radius-base: 8px;
+  background-image: url('@/assets/images/assets-login-bg-4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 $raidus: calc(var(--el-border-radius-base) * 2);
 
 main {
-  width: 60%;
-  height: 80%;
+  width: 768px;
+  height: 600px;
   background-color: #fff;
   border-radius: $raidus;
   padding: 12px;
@@ -333,8 +336,7 @@ main {
 }
 
 .login-info {
-  width: 36%;
-  // height: 100%;
+  width: 40%;
   background-color: var(--el-color-primary);
   color: white;
   position: relative;
@@ -456,7 +458,7 @@ main {
 // 适配手机端
 @media screen and (max-width: 768px) {
   .page-login {
-    padding: 12px;
+    padding: 24px 24px;
   }
 
   .login-form-header {
@@ -472,7 +474,7 @@ main {
   main {
     padding: 40px;
     width: 98%;
-    height: 98%;
+    height: auto;
   }
 
   .login-form-wrapper {
