@@ -4,6 +4,8 @@
 
 开发工具：[WebStorm](https://www.jetbrains.com/webstorm/)
 
+预览地址: [点击预览](http://admin.difffffft.com/)(账号:admin, 密码:admin)
+
 ### 依赖安装
 
 ```sh
