@@ -1,7 +1,6 @@
 /* 导入全局样式 */
 import 'element-plus/dist/index.css'
 import '@/styles/index.scss'
-import '@/styles/mobile.scss'
 
 import {createApp} from 'vue'
 import App from '@/App.vue'

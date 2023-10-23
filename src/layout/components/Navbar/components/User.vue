@@ -1,21 +1,25 @@
 <template>
-  <el-dropdown class="avatar-container" trigger="hover">
-    <el-button class="avatar-wrapper" size="large" text>
-      <el-avatar shape="circle" :size="24" :src="userStore.user.avatar"></el-avatar>
-      <span>{{ userStore.user.username }}</span>
-      <el-icon class="el-icon--right">
-        <ArrowDown/>
-      </el-icon>
-    </el-button>
-    <template #dropdown>
-      <el-dropdown-menu class="user-dropdown">
-        <router-link to="/profile/password">
-          <el-dropdown-item>修改密码</el-dropdown-item>
-        </router-link>
-        <el-dropdown-item divided @click="logout"> 退出登录</el-dropdown-item>
-      </el-dropdown-menu>
+  <el-popover
+      placement="bottom-start"
+      trigger="hover"
+      :width="100"
+  >
+    <div class="tabs-popover">
+      <el-button @click="onUpdatePassword" text icon="Edit">修改密码</el-button>
+      <el-button @click="onLogout" text icon="Close">退出登录</el-button>
+    </div>
+    <template #reference>
+      <el-button class="account-wrapper" size="large" text>
+        <el-icon size="large">
+          <User/>
+        </el-icon>
+        <el-text class="account" truncated>{{ userStore.user.username }}</el-text>
+        <el-icon size="large">
+          <ArrowDown/>
+        </el-icon>
+      </el-button>
     </template>
-  </el-dropdown>
+  </el-popover>
 </template>
 
 <script setup>
@@ -26,7 +30,10 @@ import useUserStore from "@/store/modules/userStore";
 const userStore = useUserStore()
 const router = useRouter()
 
-const logout = () => {
+const onUpdatePassword = () => {
+  router.push({path: "/profile/password"})
+}
+const onLogout = () => {
   userStore.logoutAction().then(() => {
     location.reload()
   })
@@ -34,24 +41,29 @@ const logout = () => {
 </script>
 
 <style lang="scss" scoped>
-.avatar-container {
+.tabs-popover {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: var(--theme-header-height);
-  margin-left: var(--el-margin-base);
+  flex-direction: column;
 
-  .avatar-wrapper {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    cursor: pointer;
-    padding: 0 16px;
-    color: var(--theme-header-text-color);
+  .el-button {
+    width: 100%;
+    justify-content: flex-start;
+  }
 
-    span {
-      margin: 0 4px;
-    }
+  .el-button + .el-button {
+    margin-left: 0;
+    margin-top: 2px;
+  }
+}
+
+.account-wrapper {
+  p {
+
+  }
+
+  .account {
+    margin: 0 6px;
+    max-width: 100px;
   }
 }
 </style>

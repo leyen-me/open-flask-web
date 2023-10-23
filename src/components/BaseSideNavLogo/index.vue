@@ -2,7 +2,7 @@
 const props = defineProps({
   sidebarOpened: {
     type: Boolean,
-    required: true
+    required: false
   }
 })
 </script>

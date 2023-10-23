@@ -7,7 +7,7 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 // https://vitejs.dev/config/
 export default defineConfig(({command, mode}) => {
-    const { VITE_APP_ENV } = loadEnv(mode, process.cwd())
+    const {VITE_APP_ENV} = loadEnv(mode, process.cwd())
     return {
         base: VITE_APP_ENV === 'production' ? './' : '/',
         plugins: [vue(), vueSetupExtend()],
@@ -16,6 +16,16 @@ export default defineConfig(({command, mode}) => {
                 '@': fileURLToPath(new URL('./src', import.meta.url)),
                 '~': fileURLToPath(new URL('./', import.meta.url))
             }
+        },
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: `@import "@/styles/variables.scss";`,
+                }
+            }
+        },
+        server: {
+            host: "0.0.0.0"
         }
     }
 })
