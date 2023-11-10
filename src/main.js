@@ -6,6 +6,7 @@ import {createApp} from 'vue'
 import App from '@/App.vue'
 
 import ElementPlus from 'element-plus'
+import PrintVersion from '@/utils/printVersion'
 import ElementPlusIcons from '@/utils/elementPlusIcons'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
@@ -46,6 +47,10 @@ app.component("BaseSideNavLogo", BaseSideNavLogo)
 
 app.use(pinia)
 app.use(router)
+app.use(PrintVersion)
 app.use(ElementPlus, {locale: zhCn})
 app.use(ElementPlusIcons)
+
+
 app.mount('#app')
+
