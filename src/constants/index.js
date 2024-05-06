@@ -8,7 +8,7 @@ export const BASE_UPLOAD_URL = BASE_URL + '/sys/file/upload'
 export const BASE_UPLOAD_USER_EXCEL_URL = BASE_URL + '/sys/user/import'
 
 // logo的英文名称
-export const LOGO_ENGLISH_NAME = 'DIFFFFFFT'
+export const LOGO_ENGLISH_NAME = 'back management system'
 
 // 本地存储TOKEN
 export const LOCAL_TOKEN = 'access_token'
