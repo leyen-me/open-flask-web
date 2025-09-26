@@ -40,7 +40,7 @@ const useDownload = ({url, data = {}, method = 'POST', loading = true}) => {
             }
             const blob = new Blob([response.data])
             const blobUrl = window.URL.createObjectURL(blob)
-            const fileNameFlag = `attachment; filename=`
+            const fileNameFlag = `attachment; filename*=utf-8''`
             const fileName = response.headers['content-disposition'].split(fileNameFlag)[1]
             download(decodeURIComponent(fileName), blobUrl)
         } catch (e) {
